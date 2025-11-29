@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Mood - Global Emotion Pulse</title>
+    <meta name="description" content="A real-time visualization of humanity's collective emotional state across the globe">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading screen - shows while Three.js initializes -->
+    <div id="loading">
+        <div class="loader"></div>
+        <p>Connecting to global consciousness...</p>
+    </div>
+    
+    <div id="app">
+        <header>
+            <h1>World Mood</h1>
+            <p class="tagline">Feel the pulse of humanity</p>
+        </header>
+
+        <!-- Three.js renders here -->
+        <div id="globe-container"></div>
+
+        <!-- Mood selection panel -->
+        <div id="mood-panel">
+            <p>How are you feeling right now?</p>
+            <div id="mood-buttons">
+                <!-- Each button has a mood type and associated color -->
+                <button class="mood-btn" data-mood="happy" data-color="#FFD93D" title="Happy">
+                    <span class="mood-icon happy-icon"></span>
+                    <span class="mood-label">Happy</span>
+                </button>
+                <button class="mood-btn" data-mood="love" data-color="#FF6B6B" title="Love">
+                    <span class="mood-icon love-icon"></span>
+                    <span class="mood-label">Love</span>
+                </button>
+                <button class="mood-btn" data-mood="sad" data-color="#4ECDC4" title="Sad">
+                    <span class="mood-icon sad-icon"></span>
+                    <span class="mood-label">Sad</span>
+                </button>
+                <button class="mood-btn" data-mood="angry" data-color="#FF8C42" title="Angry">
+                    <span class="mood-icon angry-icon"></span>
+                    <span class="mood-label">Angry</span>
+                </button>
+                <button class="mood-btn" data-mood="anxious" data-color="#A855F7" title="Anxious">
+                    <span class="mood-icon anxious-icon"></span>
+                    <span class="mood-label">Anxious</span>
+                </button>
+                <button class="mood-btn" data-mood="peaceful" data-color="#22C55E" title="Peaceful">
+                    <span class="mood-icon peaceful-icon"></span>
+                    <span class="mood-label">Peaceful</span>
+                </button>
+                <button class="mood-btn" data-mood="excited" data-color="#F97316" title="Excited">
+                    <span class="mood-icon excited-icon"></span>
+                    <span class="mood-label">Excited</span>
+                </button>
+                <button class="mood-btn" data-mood="tired" data-color="#6B7280" title="Tired">
+                    <span class="mood-icon tired-icon"></span>
+                    <span class="mood-label">Tired</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats display -->
+        <div id="stats-panel">
+            <div class="stat">
+                <span id="total-moods">0</span>
+                <label>Global Moods</label>
+            </div>
+            <div class="stat">
+                <span id="top-mood">Happy</span>
+                <label>Trending Now</label>
+            </div>
+        </div>
+
+        <!-- Live feed of recent moods -->
+        <div id="recent-moods">
+            <h3>Live Feed</h3>
+            <div id="mood-feed"></div>
+        </div>
+        
+        <!-- Anonymous message feature -->
+        <div id="message-panel">
+            <h3>Share a Thought with the World</h3>
+            <p class="message-subtitle">Anonymous. Fleeting. Human.</p>
+            <div class="message-input-wrapper">
+                <input type="text" id="mood-message" placeholder="What's on your mind right now?" maxlength="100">
+                <button id="send-message-btn">Send</button>
+            </div>
+            <div id="world-messages"></div>
+        </div>
+        
+        <!-- Time travel feature -->
+        <div id="time-travel-panel">
+            <h3>Time Travel</h3>
+            <p class="time-subtitle">See how the world felt at different moments</p>
+            <div class="time-controls">
+                <button class="time-btn" data-hours="1">1 Hour Ago</button>
+                <button class="time-btn" data-hours="6">6 Hours Ago</button>
+                <button class="time-btn" data-hours="24">Yesterday</button>
+                <button class="time-btn active" data-hours="0">Live Now</button>
+            </div>
+            <div id="time-indicator">
+                <span id="viewing-time">Viewing: Live</span>
+            </div>
+        </div>
+        
+        <!-- Footer with project info -->
+        <footer>
+            <p>World Mood - AETHRA Global Pitchaton 2025</p>
+            <p class="footer-note">Connecting humanity through shared emotions</p>
+        </footer>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- Three.js for 3D globe -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Application scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
